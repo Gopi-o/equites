@@ -1,0 +1,108 @@
+body{
+    background-color: black;
+    color: white;
+}
+
+.heading{
+    text-align: center;
+    color: white;
+    font-size: 50px;
+}
+
+.heading2{
+    font-size: 30px;
+    margin: 25px 0px 5px 0px;
+}
+
+.conteiner{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.con {
+    background-color: rgb(34, 33, 33);
+    width: 550px;
+    height: 590px;
+    border-top: 4px solid  rgb(212, 175, 55);
+    padding: 0px 20px;
+}
+
+.popups{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.but{
+    background-color: rgb(61, 61, 61);
+    margin: 20px auto;
+    display: block;
+    padding: 14px 10px;
+    width: 520.4px;
+    outline: none;
+    color: white;
+}
+
+.but_soo{
+    height: 60px;
+    background-color: rgb(61, 61, 61);
+    margin: 20px auto;
+    display: block;
+    padding: 14px 10px;
+    width: 520.4px;
+    outline: none;
+    color: white;
+}
+
+.button_but{
+    background-color: rgb(212, 175, 55);
+    text-align: center;
+    padding: 5px 20px;
+    outline: none;
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+}
+
+.hrr{
+    border: none;
+    height: 2px;
+    background-color: rgb(61, 61, 61);
+}
+
+input{
+    outline: none;
+}
+
+.info{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.bold{
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 0;
+}
+
+.nobold{
+    margin-top: 5px;
+}
+
+.map{
+    width: 90%;
+    max-width: 1200px;
+    height: 400px;
+    margin: 100px auto;
+    padding: 0;
+}
+
+.map iframe{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+

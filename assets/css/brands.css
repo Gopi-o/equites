@@ -44,3 +44,7 @@ body{
     font-size: 12px;
 }
 
+img{
+    width: 50%;
+    margin-top: 5px;
+}
