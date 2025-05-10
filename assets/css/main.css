@@ -1,0 +1,61 @@
+:root {
+    --color-yellow: #D4AF37;
+  }
+.wrapper{
+    background: #161513;
+    background: linear-gradient(90deg, rgba(22, 21, 19, 1) 50%, rgba(15, 14, 12, 1) 100%);
+    min-height: 90vh;
+}
+
+.discount_title{
+  color: white;
+}
+.disconts_all{
+    display: grid;
+    width: 80%;
+    margin: 0 auto;
+    grid-template-columns: 1fr 1fr 1fr ;
+}
+.discount_card{
+  margin:20px auto;
+    width: 18rem;
+    border-radius: 10px;
+    background-color: #1A1916;
+    border: 1px solid #252320;
+    transition-duration: 0.3s;
+}
+.date p{
+    margin: 0%;
+}
+.card img{
+    width: 100%;
+    filter: brightness(50%);
+}
+.card_body{
+    padding: 20px;
+    color: white;
+}
+.card_body h5{
+    color:var(--color-yellow);
+}
+.card_body p{
+    font-size: 12px;
+}
+.button_dicsount{
+    background-color:var(--color-yellow) ;
+    color: #1A1916;
+    text-decoration: none;
+    border-radius: 20px;
+    padding:8px 5px ;
+    display: block;
+    text-align: center;
+    font-weight: 600;
+    transition-duration: 0.3s;
+}
+.discount_card:hover{
+    transform: scale(0.97);
+}
+.button_dicsount:hover{
+    transform: scale(0.97);
+    filter: brightness(60%);
+}
