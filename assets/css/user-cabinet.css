@@ -1,0 +1,146 @@
+.profile-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+@media (min-width: 600px) {
+    .profile-section {
+        grid-template-columns: 150px 1fr;
+    }
+}
+
+.profile-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #252320;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #D4AF37;
+    font-size: 36px;
+    margin: 0 auto;
+    border: 3px solid #D4AF37;
+}
+
+.profile-info {
+    padding: 20px 0;
+}
+
+.profile-name {
+    color: #F1E5AC;
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+@media (min-width: 600px) {
+    .profile-name {
+        text-align: left;
+    }
+}
+
+.profile-status {
+    color: #D4AF37;
+    font-size: 14px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+@media (min-width: 600px) {
+    .profile-status {
+        text-align: left;
+    }
+}
+
+.profile-details {
+    background-color: rgba(26, 25, 22, 0.5);
+    padding: 20px;
+    border-top: 3px solid #D4AF37;
+}
+
+.detail-item {
+    margin-bottom: 15px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.detail-label {
+    color: #A9A7A2;
+    width: 120px;
+    font-size: 14px;
+}
+
+.detail-value {
+    flex: 1;
+    color: #E8E6E3;
+}
+
+.section-title {
+    color: #D4AF37;
+    border-bottom: 1px solid #252320;
+    padding-bottom: 10px;
+    margin-top: 40px;
+    font-weight: normal;
+}
+
+.booking-list {
+    list-style: none;
+    padding: 0;
+}
+
+.booking-item {
+    padding: 20px;
+    margin-bottom: 15px;
+    background-color: rgba(26, 25, 22, 0.5);
+    border-left: 3px solid #D4AF37;
+}
+
+.booking-title {
+    color: #F1E5AC;
+    margin-top: 0;
+}
+
+.booking-meta {
+    color: #A9A7A2;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.booking-status {
+    display: inline-block;
+    padding: 3px 10px;
+    background-color: #252320;
+    color: #D4AF37;
+    font-size: 12px;
+    border-radius: 3px;
+}
+.btn {
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: #D4AF37;
+    color: #0F0E0C;
+    border: none;
+    border-radius: 30px;
+    text-decoration: none;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn:hover {
+    background-color: #F1E5AC;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: #D4AF37;
+    border: 1px solid #D4AF37;
+    margin-right: 10px;
+}
+
+.btn-outline:hover {
+    background-color: rgba(212, 175, 55, 0.1);
+}
