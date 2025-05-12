@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="/assets/css/Template.css">
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="stylesheet" href="/assets/css/about.css">
+    <link rel="stylesheet" href="/assets/css/novelty.css">
+    <link rel="stylesheet" href="/assets/css/brands.css">
+    <link rel="stylesheet" href="/assets/css/contact.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -40,6 +43,47 @@
                     <a href="#"><i class="fab fa-facebook"></i></a>
                 </div>
             </div>
+            <!-- Модальное окно корзины -->
+            <div class="modal-overlay" id="cart-modal">
+                <div class="modal-container">
+                    <div class="modal-close">&times;</div>
+                    <h2 class="modal-title">Ваша корзина</h2>
+                    
+                    <div class="cart-content">
+                        <div class="cart-items">
+                            <div class="cart-item">
+                                <div class="cart-item-name">Абонемент на 10 занятий</div>
+                                <div class="cart-item-price">25 000 ₽</div>
+                            </div>
+                            
+                            <div class="cart-item">
+                                <div class="cart-item-name">Персональная тренировка</div>
+                                <div class="cart-item-price">5 000 ₽</div>
+                            </div>
+                            
+                            <div class="cart-item">
+                                <div class="cart-item-name">Фотосессия с лошадьми</div>
+                                <div class="cart-item-price">12 000 ₽</div>
+                            </div>
+                            
+                            <div class="cart-total">
+                                Итого: <span>42 000 ₽</span>
+                            </div>
+                            
+                            <div class="cart-actions">
+                                <button class="cart-btn" id="continue-shopping">Продолжить выбор</button>
+                                <button class="cart-btn cart-btn-primary">Оформить</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Пример пустой корзины -->
+                        <div class="empty-cart">
+                            Ваша корзина пуста<br>
+                            <button class="cart-btn" style="margin-top: 15px;">Выбрать услуги</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         
         <!-- Мобильное меню -->
@@ -53,6 +97,15 @@
                     <li><a href="/pages/brands.html">Бренды</a></li>
                     <li><a href="/pages/reviews.html">Отзывы</a></li>
                     <li><a href="/pages/contact.html">Контакты</a></li>
+                    <div class="user-actions">
+                        <a href="/pages/user-cabinet.html" class="action-icon" title="Личный кабинет">
+                            <i class="fas fa-user"></i>
+                        </a>
+                        <div class="action-icon" id="cart-icon" title="Корзина">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count">3</span>
+                        </div>
+                    </div>
                 </ul>
             </nav>
         </div>
@@ -148,8 +201,7 @@
             <h2 class="section-title" data-animate="fadeIn">Наша команда</h2>
             <div class="team-grid">
                 <div class="team-member" data-animate="fadeIn">
-                    <div class="member-photo">
-                        <i class="fas fa-user-tie"></i>
+                    <div class="member-photo" style="background-image: url('/assets/resources/img/gallery/team-1.png')">
                     </div>
                     <div class="member-info">
                         <h3>Александр Петров</h3>
@@ -159,8 +211,7 @@
                     </div>
                 </div>
                 <div class="team-member" data-animate="fadeIn" style="animation-delay: 0.2s">
-                    <div class="member-photo">
-                        <i class="fas fa-horse-head"></i>
+                    <div class="member-photo" style="background-image: url('/assets/resources/img/gallery/team-2.png')">
                     </div>
                     <div class="member-info">
                         <h3>Елена Смирнова</h3>
@@ -170,8 +221,7 @@
                     </div>
                 </div>
                 <div class="team-member" data-animate="fadeIn" style="animation-delay: 0.4s">
-                    <div class="member-photo">
-                        <i class="fas fa-horse"></i>
+                    <div class="member-photo" style="background-image: url('/assets/resources/img/gallery/team-3.png')">
                     </div>
                     <div class="member-info">
                         <h3>Дмитрий Козлов</h3>
@@ -181,8 +231,7 @@
                     </div>
                 </div>
                 <div class="team-member" data-animate="fadeIn" style="animation-delay: 0.6s">
-                    <div class="member-photo">
-                        <i class="fas fa-trophy"></i>
+                    <div class="member-photo" style="background-image: url('/assets/resources/img/gallery/team-4.png')">
                     </div>
                     <div class="member-info">
                         <h3>Ирина Волкова</h3>
@@ -203,22 +252,22 @@
             <h2 class="section-title" data-animate="fadeIn">Фотогалерея</h2>
             <div class="gallery-grid">
                 <div class="gallery-item" data-animate="fadeIn">
-                    <img src="https://images.unsplash.com/photo-1553284965-5dd8352ff1bd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Конюшни">
+                    <img src="/assets/resources/img/gallery/gallery-1.png" alt="Конюшни">
                 </div>
                 <div class="gallery-item" data-animate="fadeIn" style="animation-delay: 0.2s">
-                    <img src="https://images.unsplash.com/photo-1517420704952-d9f39e95b43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Тренировка">
+                    <img src="/assets/resources/img/gallery/gallery-2.png" alt="Тренировка">
                 </div>
                 <div class="gallery-item" data-animate="fadeIn" style="animation-delay: 0.4s">
-                    <img src="https://images.unsplash.com/photo-1506816561089-5cc37b0aa8fb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Прогулка">
+                    <img src="/assets/resources/img/gallery/gallery-3.png" alt="Прогулка">
                 </div>
                 <div class="gallery-item" data-animate="fadeIn" style="animation-delay: 0.6s">
-                    <img src="https://images.unsplash.com/photo-1594069033311-9a59594a1a3f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Соревнования">
+                    <img src="/assets/resources/img/gallery/gallery-4.png" alt="Соревнования">
                 </div>
                 <div class="gallery-item" data-animate="fadeIn" style="animation-delay: 0.8s">
-                    <img src="https://images.unsplash.com/photo-1594069033311-9a59594a1a3f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Детская группа">
+                    <img src="/assets/resources/img/gallery/gallery-5.png" alt="Детская группа">
                 </div>
                 <div class="gallery-item" data-animate="fadeIn" style="animation-delay: 1s">
-                    <img src="https://images.unsplash.com/photo-1594069033311-9a59594a1a3f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Территория клуба">
+                    <img src="/assets/resources/img/gallery/gallery-6.png" alt="Территория клуба">
                 </div>
             </div>
             <div style="text-align: center; margin-top: 50px;" data-animate="fadeIn">
@@ -289,6 +338,27 @@
             } else {
                 header.classList.remove('scrolled');
             }
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+            const cartIcon = document.getElementById('cart-icon');
+            const cartModal = document.getElementById('cart-modal');
+            const modalClose = document.querySelector('.modal-close');
+            const continueShopping = document.getElementById('continue-shopping');
+            
+            // Открытие модального окна корзины
+            cartIcon.addEventListener('click', function() {
+                cartModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+            
+            // Закрытие модального окна
+            function closeModal() {
+                cartModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+            
+            modalClose.addEventListener('click', closeModal);
+            continueShopping.addEventListener('click', closeModal);
         });
     </script>
 </body>

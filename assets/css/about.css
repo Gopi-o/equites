@@ -12,7 +12,6 @@
     align-items: center;
     text-align: center;
     position: relative;
-    margin-top: var(--header-height);
 }
 
 .about-banner-content {
@@ -144,12 +143,29 @@
 
 .member-photo {
     height: 250px;
-    background: linear-gradient(45deg, #1E1D1B, #625045);
+    background: linear-gradient(rgba(30, 29, 27, 0.7), rgba(98, 80, 69, 0.7)), 
+                var(--member-photo) no-repeat center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--color-gold);
     font-size: 60px;
+    position: relative;
+}
+
+.member-photo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(30, 29, 27, 0.7), rgba(98, 80, 69, 0.7));
+    z-index: 1;
+}
+
+.team-member:hover .member-photo::before {
+    background: linear-gradient(45deg, rgba(212, 175, 55, 0.2), rgba(98, 80, 69, 0.7));
 }
 
 .member-info {

@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="/assets/css/Template.css">
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="stylesheet" href="/assets/css/about.css">
+    <link rel="stylesheet" href="/assets/css/novelty.css">
+    <link rel="stylesheet" href="/assets/css/brands.css">
+    <link rel="stylesheet" href="/assets/css/contact.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -40,6 +43,47 @@
                     <a href="#"><i class="fab fa-facebook"></i></a>
                 </div>
             </div>
+            <!-- Модальное окно корзины -->
+            <div class="modal-overlay" id="cart-modal">
+                <div class="modal-container">
+                    <div class="modal-close">&times;</div>
+                    <h2 class="modal-title">Ваша корзина</h2>
+                    
+                    <div class="cart-content">
+                        <div class="cart-items">
+                            <div class="cart-item">
+                                <div class="cart-item-name">Абонемент на 10 занятий</div>
+                                <div class="cart-item-price">25 000 ₽</div>
+                            </div>
+                            
+                            <div class="cart-item">
+                                <div class="cart-item-name">Персональная тренировка</div>
+                                <div class="cart-item-price">5 000 ₽</div>
+                            </div>
+                            
+                            <div class="cart-item">
+                                <div class="cart-item-name">Фотосессия с лошадьми</div>
+                                <div class="cart-item-price">12 000 ₽</div>
+                            </div>
+                            
+                            <div class="cart-total">
+                                Итого: <span>42 000 ₽</span>
+                            </div>
+                            
+                            <div class="cart-actions">
+                                <button class="cart-btn" id="continue-shopping">Продолжить выбор</button>
+                                <button class="cart-btn cart-btn-primary">Оформить</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Пример пустой корзины -->
+                        <div class="empty-cart">
+                            Ваша корзина пуста<br>
+                            <button class="cart-btn" style="margin-top: 15px;">Выбрать услуги</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         
         <!-- Мобильное меню -->
@@ -53,6 +97,15 @@
                     <li><a href="/pages/brands.html">Бренды</a></li>
                     <li><a href="/pages/reviews.html">Отзывы</a></li>
                     <li><a href="/pages/contact.html">Контакты</a></li>
+                    <div class="user-actions">
+                        <a href="/pages/user-cabinet.html" class="action-icon" title="Личный кабинет">
+                            <i class="fas fa-user"></i>
+                        </a>
+                        <div class="action-icon" id="cart-icon" title="Корзина">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count">3</span>
+                        </div>
+                    </div>
                 </ul>
             </nav>
         </div>
@@ -138,8 +191,8 @@
             <div class="promotions-grid">
                 <div class="promotion-card">
                     <div class="promotion-img">
-                        <div class="promotion-img" style="background-image: url('https://images.unsplash.com/photo-1517420704952-d9f39e95b43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')"></div>
-                        <i class="fas fa-crown"></i>
+                        <div class="promotion-img" style="background-image: url('/assets/resources/img/discount/premium_membership.png')"></div>
+
                     </div>
                     <div class="promotion-content">
                         <h3>Членство Premium</h3>
@@ -149,7 +202,7 @@
                 </div>
                 <div class="promotion-card">
                     <div class="promotion-img">
-                        <div class="promotion-img" style="background-image: url('https://images.unsplash.com/photo-1517420704952-d9f39e95b43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')"></div>
+                        <div class="promotion-img" style="background-image: url('/assets/resources/img/discount/annual_subscription.png')"></div>
                         <i class="fas fa-calendar-star"></i>
                     </div>
                     <div class="promotion-content">
@@ -160,7 +213,7 @@
                 </div>
                 <div class="promotion-card">
                     <div class="promotion-img">
-                        <div class="promotion-img" style="background-image: url('https://images.unsplash.com/photo-1517420704952-d9f39e95b43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')"></div>
+                        <div class="promotion-img" style="background-image: url('/assets/resources/img/discount/family_package.png')"></div>
                         <i class="fas fa-horse-saddle"></i>
                     </div>
                     <div class="promotion-content">
@@ -247,21 +300,21 @@
             <h2 class="section-title">Наши услуги</h2>
             <div class="catalog-grid">
                 <div class="catalog-item">
-                    <img src="https://images.unsplash.com/photo-1553284965-5dd8352ff1bd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Обучение верховой езде">
+                    <img src="/assets/resources/img/gallery/item-1.png" alt="Обучение верховой езде">
                     <div class="catalog-item-overlay">
                         <h3>Обучение верховой езде</h3>
                         <a href="#" class="btn">Подробнее</a>
                     </div>
                 </div>
                 <div class="catalog-item">
-                    <img src="https://images.unsplash.com/photo-1517420704952-d9f39e95b43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Прокат лошадей">
+                    <img src="/assets/resources/img/gallery/item-2.png" alt="Прокат лошадей">
                     <div class="catalog-item-overlay">
                         <h3>Прокат лошадей</h3>
                         <a href="#" class="btn">Подробнее</a>
                     </div>
                 </div>
                 <div class="catalog-item">
-                    <img src="https://images.unsplash.com/photo-1506816561089-5cc37b0aa8fb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Конные прогулки">
+                    <img src="/assets/resources/img/gallery/item-3.png" alt="Конные прогулки">
                     <div class="catalog-item-overlay">
                         <h3>Конные прогулки</h3>
                         <a href="#" class="btn">Подробнее</a>
@@ -455,6 +508,27 @@
             } else {
                 header.classList.remove('scrolled');
             }
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+            const cartIcon = document.getElementById('cart-icon');
+            const cartModal = document.getElementById('cart-modal');
+            const modalClose = document.querySelector('.modal-close');
+            const continueShopping = document.getElementById('continue-shopping');
+            
+            // Открытие модального окна корзины
+            cartIcon.addEventListener('click', function() {
+                cartModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+            
+            // Закрытие модального окна
+            function closeModal() {
+                cartModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+            
+            modalClose.addEventListener('click', closeModal);
+            continueShopping.addEventListener('click', closeModal);
         });
     </script>
 </body>
