@@ -62,4 +62,9 @@
 
         return query($sql);
     }
+
+   function getBrands() {
+    $sql = "SELECT id, name, country, logo, more FROM brands ORDER BY id ASC";
+    return query($sql);
+    }
 ?>
