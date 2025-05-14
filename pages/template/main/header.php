@@ -1,8 +1,10 @@
 <?php session_start(); ?>
 <?php require_once ($_SERVER['DOCUMENT_ROOT'] . '/function.php') ?>
+
 <?php $currentPage = $_SERVER['REQUEST_URI'];
               $menuItems = getMenuItems(); ?>
-
+              
+<?php  require_once '../function_reviews.php'; ?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
