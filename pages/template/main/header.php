@@ -3,8 +3,8 @@
 
 <?php $currentPage = $_SERVER['REQUEST_URI'];
               $menuItems = getMenuItems(); ?>
-              
-<?php  require_once '../function_reviews.php'; ?>
+ 
+      
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -80,3 +80,4 @@
     </header>
 
     <?php include($_SERVER['DOCUMENT_ROOT'] . '/pages/template/forms/cart.php')?>
+   <?php include('../pages/template/forms/modal_review.php') ?>

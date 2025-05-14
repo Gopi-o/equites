@@ -516,6 +516,60 @@ nav ul li:hover:after,
     display: none;
 }
 
+/* стили modal_review */
+
+.review-form input, .review-form textarea {
+   width: 100%;
+   padding: 10px;
+   border-radius: 5px;
+   background-color: #dcdcdc;
+  border: none;
+}
+.review-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: #A9A7A2;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.review-close:hover {
+    color: #D4AF37;
+}
+.rating_button{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.review-form select{
+    height: 40px;
+    border-radius: 5px;
+}
+.review-form textarea{
+
+    padding: 10px;
+    border-radius: 5px;
+    
+}
+.review_button{
+    background: transparent;
+    color: #D4AF37;
+    border: 1px solid #D4AF37;
+    padding: 10px 25px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: 'Georgia', serif;
+    border-radius: 5px;
+}
+
+.review_button:hover {
+    background: #D4AF37;
+    color: #0F0E0C;
+}
+.text-center{
+    text-align: center;
+}
 
 /* ====================== */
 /* MARK: Banner        */
