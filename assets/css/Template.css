@@ -261,7 +261,8 @@ nav ul li {
 }
 
 /* Подчеркивание пунктов меню */
-nav ul li:after {
+nav ul li:after,
+.nav-link.active::after {
     content: '';
     position: absolute;
     bottom: -5px;
@@ -272,9 +273,12 @@ nav ul li:after {
     transition: width 0.3s ease;
 }
 
-nav ul li:hover:after {
+nav ul li:hover:after,
+.nav-link.active::after {
     width: 100%;
 }
+
+
 
 /* Контакты в шапке */
 .header-actions {
