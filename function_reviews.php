@@ -11,7 +11,6 @@ function getAllReviews() {
 }
 
 
-
 function addReview($email, $phone, $user_name, $rating, $comment) {
     return make(
         "INSERT INTO reviews (email, phone, user_name, rating, comment, created_at, is_approved) 

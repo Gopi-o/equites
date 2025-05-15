@@ -32,7 +32,7 @@
                         <div class="review-text">
                            <? echo $review['comment'] ?>
                         </div>
-                        <div class="rating">Оценка: ★★★★★</div>
+                        <div class="rating">Оценка: <? echo str_repeat('★', $review['rating']) . str_repeat('☆', 5 - $review['rating']) ?>;</div>
                     </div>
                     <? endforeach; ?>
                    
