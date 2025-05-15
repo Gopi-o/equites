@@ -4,8 +4,8 @@
         $driver = 'mysql';
         $host = 'equites';
         $db_name = 'equites';
-        $db_user = 'root';
-        $db_password = '';
+        $db_user = 'mysql';
+        $db_password = 'mysql';
         $charset = 'utf8mb4';
 
         $options = [
@@ -61,5 +61,24 @@
         }
 
         return query($sql);
+    }
+
+   function getBrands() {
+    $sql = "SELECT id, name, country, logo, more FROM brands ORDER BY id ASC";
+    return query($sql);
+    }
+
+    function getDiscounts() {
+    $sql = "SELECT discount_id, title, description, start_date, end_date, image_url 
+            FROM discount 
+            ORDER BY start_date DESC";
+    return query($sql);
+    }
+
+    function getNovelties() {
+    $sql = "SELECT id, title, description, date, link_text, link_url 
+            FROM novelties 
+            ORDER BY date DESC";
+    return query($sql);
     }
 ?>
