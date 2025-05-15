@@ -1,8 +1,10 @@
 <?php session_start() ?>
 <?php require_once ($_SERVER['DOCUMENT_ROOT'] . '/function.php') ?>
+
 <?php $currentPage = $_SERVER['REQUEST_URI'];
               $menuItems = getMenuItems(); ?>
-
+ 
+      
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -84,3 +86,4 @@
 
     <?php include($_SERVER['DOCUMENT_ROOT'] . '/pages/template/forms/cart.php')?>
     <?php include($_SERVER['DOCUMENT_ROOT'] . '/pages/template/forms/auth.php')?>
+   <?php include('../pages/template/forms/modal_review.php') ?>
