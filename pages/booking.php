@@ -78,7 +78,7 @@ $trainers = query("SELECT * FROM trainers WHERE is_active = 1");
                 
                 <div class="form-group">
                     <button type="submit" class="btn">Забронировать</button>
-                    <a href="/pages/profile.php" class="btn btn-outline">Отмена</a>
+                    <a href="/pages/user-cabinet.php" class="btn btn-outline">Отмена</a>
                 </div>
             </form>
         </div>
