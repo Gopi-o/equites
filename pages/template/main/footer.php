@@ -55,5 +55,6 @@
     </footer>
     <script src="/assets/js/template.js"></script>
     <script src="/assets/js/modules/cart.js"></script>
+    <script src="/assets/js/modules/auth.js"></script>
 </body>
 </html>
