@@ -1,5 +1,5 @@
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/pages/template/main/header.php')?>
-  <?php include('../pages/template/forms/modal_review.php') ?>
+
 
      <!-- Переход 2 (диагональ) -->
     <section class="transition-diagonal gold-section">

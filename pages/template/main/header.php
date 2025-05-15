@@ -78,6 +78,6 @@
             </nav>
         </div>
     </header>
-
+    <?php include('../pages/template/forms/modal_review.php') ?>
     <?php include($_SERVER['DOCUMENT_ROOT'] . '/pages/template/forms/cart.php')?>
  

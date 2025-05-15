@@ -46,6 +46,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     rating: document.getElementById('review-rating').value
                 };
 
+                console.log('Отправляемые данные:', formData); // Логирование
+
                 // Валидация
                 if (!validateForm(formData)) {
                     return;
@@ -60,21 +62,26 @@ document.addEventListener('DOMContentLoaded', function() {
                     body: JSON.stringify(formData)
                 });
 
+                console.log('Статус ответа:', response.status); // Логирование
+
+                if (!response.ok) {
+                    const errorData = await response.json().catch(() => null);
+                    throw new Error(errorData?.message || 'Ошибка сервера');
+                }
+
                 const result = await response.json();
+                console.log('Результат:', result); // Логирование
 
                 if (result.success) {
                     showAlert('Спасибо! Ваш отзыв отправлен на модерацию.', 'success');
                     reviewForm.reset();
                     closeModal();
-                    
-                    // Если нужно обновить список отзывов без перезагрузки страницы:
-                    // updateReviewsList();
                 } else {
-                    showAlert(result.message || 'Произошла ошибка при отправке отзыва', 'error');
+                    throw new Error(result.message || 'Ошибка при отправке');
                 }
             } catch (error) {
-                showAlert('Ошибка соединения с сервером', 'error');
                 console.error('Ошибка:', error);
+                showAlert(error.message || 'Ошибка соединения с сервером', 'error');
             } finally {
                 submitBtn.disabled = false;
                 submitBtn.textContent = originalBtnText;
@@ -102,16 +109,29 @@ document.addEventListener('DOMContentLoaded', function() {
         return true;
     }
 
-    // Функция показа уведомлений
-    function showAlert(message, type) {
-        const alert = document.createElement('div');
-        alert.className = `alert ${type}`;
-        alert.textContent = message;
-        document.body.appendChild(alert);
+    // Улучшенная функция показа уведомлений
+   function showAlert(message, type) {
+    // Создаем элемент уведомления
+    const alert = document.createElement('div');
+    alert.className = `alert ${type}`;
+    alert.textContent = message;
+    
+    // Добавляем на страницу
+    document.body.appendChild(alert);
+    
+    // Запускаем анимацию появления
+    setTimeout(() => {
+        alert.classList.add('show');
+    }, 10);
+    
+    // Удаление через 3 секунды с анимацией
+    setTimeout(() => {
+        alert.classList.remove('show');
         
+        // Полное удаление после анимации
         setTimeout(() => {
-            alert.classList.add('fade-out');
-            setTimeout(() => alert.remove(), 500);
-        }, 3000);
-    }
+            alert.remove();
+        }, 300);
+    }, 3000);
+}
 });

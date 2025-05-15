@@ -57,10 +57,10 @@
                 <hr class="hrr">
 
                 <div class="popups">
-                    <form action="box">
-                        <input class="but" type="text" placeholder="Ваше имя">
-                        <input class="but" type="text" placeholder="Ваш email">
-                        <input class="but_soo" type="text" placeholder="Ваше сообщение">
+                    <form id="contact-form" >
+                        <input id='contact-name' name="name" class="but" type="text" placeholder="Ваше имя">
+                        <input id='contact-email' name="email" class="but" type="text" placeholder="Ваш email">
+                        <input id='contact-comment' name="comment" class="but_soo" type="text" placeholder="Ваше сообщение">
                         <input class="button_but" type="submit" value="Отправить">
                     </form>
                 </div>
@@ -83,4 +83,5 @@
 
     </div>
 
+<script src="../assets/js/modules/contact.js"></script>
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/pages/template/main/footer.php')?>
