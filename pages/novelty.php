@@ -7,39 +7,24 @@
 
     <main>
         <div class="wrapper">
-
-        
             <div class="container">
                 <h2 class="discount_title text-center">Новинки</h2>
                 
                 <ul class="novelties-list">
+                    <?php 
+                    $novelties = getNovelties();
+                    foreach ($novelties as $novelty) { 
+                        $formattedDate = date('d.m.Y', strtotime($novelty['date']));
+                    ?>
                     <li class="novelty-item">
-                        <span class="novelty-date">15 мая 2025</span>
-                        <h2>Новый жеребец "Альфа"</h2>
-                        <p>В нашем клубе появился чистокровный арабский скакун для профессиональных занятий верховой ездой.</p>
-                        <a href="#" class="novelty-link">Подробнее</a>
+                        <span class="novelty-date"><?= $formattedDate ?></span>
+                        <h2><?= htmlspecialchars($novelty['title']) ?></h2>
+                        <p><?= htmlspecialchars($novelty['description']) ?></p>
+                        <a href="<?= htmlspecialchars($novelty['link_url']) ?>" class="novelty-link">
+                            <?= htmlspecialchars($novelty['link_text']) ?>
+                        </a>
                     </li>
-                    
-                    <li class="novelty-item">
-                        <span class="novelty-date">10 мая 2025</span>
-                        <h2>Открытие детской группы</h2>
-                        <p>Начинаем набор детей от 5 лет в новую учебную группу с профессиональными тренерами.</p>
-                        <a href="#" class="novelty-link">Записаться</a>
-                    </li>
-                    
-                    <li class="novelty-item">
-                        <span class="novelty-date">5 мая 2025</span>
-                        <h2>Новая коллекция седел</h2>
-                        <p>Поступили в продажу седла Pikeur 2025 года - последние модели от ведущего производителя.</p>
-                        <a href="#" class="novelty-link">Смотреть</a>
-                    </li>
-                    
-                    <li class="novelty-item">
-                        <span class="novelty-date">1 мая 2025</span>
-                        <h2>Новые маршруты прогулок</h2>
-                        <p>Добавлены 3 новых живописных маршрута для конных прогулок по окрестностям.</p>
-                        <a href="#" class="novelty-link">Забронировать</a>
-                    </li>
+                    <?php } ?>
                 </ul>
             </div>
         </div>
