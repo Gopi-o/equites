@@ -12,8 +12,6 @@
                 <h1>Отзывы наших клиентов</h1>
                 
                 <div class="reviews-container">
-                    
-                    <?php  require_once '../function_reviews.php'; ?> 
 
                     <?php
                     $reviews = getAllReviews();

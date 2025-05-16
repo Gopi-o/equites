@@ -219,4 +219,31 @@
                 ORDER BY date DESC";
         return query($sql);
     }
+
+    function getAllReviews() {
+        return query("
+            SELECT user_name, rating, comment, created_at 
+            FROM reviews 
+            ORDER BY created_at DESC
+        ");
+
+    }
+
+    function getProducts() {
+        $sql = "SELECT product_id, name, description, price, image_url FROM products ORDER BY name ASC";
+        return query($sql);
+    }
+
+    
+    function calculateCartTotal($cart) {
+        return array_reduce($cart, function($sum, $item) {
+            return $sum + ($item['price'] * $item['quantity']);
+        }, 0);
+    }
+
+    function countCartItems($cart) {
+        return array_reduce($cart, function($sum, $item) {
+            return $sum + $item['quantity'];
+        }, 0);
+    }
 ?>

@@ -451,11 +451,28 @@ nav ul li:hover:after,
 }
 
 /* Стили корзины */
+
+.cart-content {
+    margin-top: 20px;
+}
+
 .cart-item {
     display: flex;
     justify-content: space-between;
     padding: 15px 0;
     border-bottom: 1px solid #252320;
+}
+
+.cart-item-info h4 {
+    margin: 0 0 5px 0;
+}
+
+.cart-item-remove {
+    background: none;
+    border: none;
+    color: #ff5252;
+    cursor: pointer;
+    font-size: 18px;
 }
 
 .cart-item:last-child {
