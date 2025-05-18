@@ -10,19 +10,28 @@
                     <h2 class="discount_title text-center">Акции</h2>
                     <div class="disconts_all">
 
-                        <div class="discount_card card">
+                         <?php
+                     require_once '../function_discount.php'; 
+                    $discounts = getAllDiscount();
 
-                            <img src="/assets/resources/img/discount/premium_membership.png" alt="">
+                    foreach($discounts as $discount):
+                    ?>
+                         <div class="discount_card card">
+
+                            <img src="/assets/resources/img/discount/<? echo $discount['image_url']; ?>" alt="">
                             <div class="card_body">
                                 <div class="date">
                                  
-                                    <p>01.05.2025-31.05.2025</p>
+                                    <p><? echo $discount['start_date']; ?>-<? echo $discount['end_date']; ?></p>
                                 </div>
-                                <h5>Членство Premium</h5>
-                                <p>Станьте членом нашего клуба и получите эксклюзивные привилегии, включая персонального тренера и неограниченный доступ к конюшням. Специальное предложение - скидка 25% на первый месяц членства.</p>
+                                <h5><? echo $discount['title']; ?></h5>
+                                <p><? echo $discount['description']; ?></p>
                                 <a class="button_dicsount" href="">Подробнее</a>
                             </div>
                         </div>
+                    <? endforeach; ?>
+
+                       
                         <div class="discount_card card">
     
                             <img src="/assets/resources/img/discount/annual_subscription.png" alt="">
