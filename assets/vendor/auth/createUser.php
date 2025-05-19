@@ -23,11 +23,16 @@
     );
 
     if ($result) {
-        $userId = connect()->lastInsertId();
-        $_SESSION['id_user'] = $userId;
-        $_SESSION['user_name'] = $name;
-        $_SESSION['user_email'] = $email;
-        $_SESSION['is_admin'] = false;
+        $user = getUserByEmail($email);
+        $_SESSION['id_user'] = $user['user_id'];
+        $_SESSION['user_name'] = $user['name'];
+        $_SESSION['user_email'] = $user['email'];
+        $_SESSION['is_admin'] = $user['role'] === 'admin';
+        // $userId = connect()->lastInsertId();
+        // $_SESSION['id_user'] = $userId;
+        // $_SESSION['user_name'] = $name;
+        // $_SESSION['user_email'] = $email;
+        // $_SESSION['is_admin'] = false;
         
         echo json_encode(['success' => true]);
     } else {

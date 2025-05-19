@@ -144,3 +144,28 @@
 .btn-outline:hover {
     background-color: rgba(212, 175, 55, 0.1);
 }
+
+#pinMessage {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 14px;
+    min-height: 20px;
+}
+
+/* Admin Access Button */
+.admin-access-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: transparent;
+    color: #D4AF37;
+    border: 1px solid #D4AF37;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.admin-access-btn:hover {
+    background-color: rgba(212, 175, 55, 0.1);
+}

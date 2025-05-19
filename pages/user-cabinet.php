@@ -73,6 +73,9 @@
                         <form action="/assets/vendor/auth/logout.php" method="post" style="margin-top: 20px;">
                             <button type="submit" class="btn btn-outline">Выйти из аккаунта</button>
                         </form>
+                        <?php if (!empty($user['role']) && $user['role'] === 'admin') { ?>
+                            <button id="adminAccessBtn" class="admin-access-btn">Вход в админ-панель</button>
+                        <?php } ?>
                     </div>
                 </div>
                 
