@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
 
                 // Отправка на сервер
-                const response = await fetch('/add_contact.php', {
+                const response = await fetch('/assets/vendor/contact/add_contact.php', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
