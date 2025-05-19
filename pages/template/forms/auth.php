@@ -104,3 +104,21 @@
         </form>
     </div>
 </div>
+
+<!-- Modal view Admin PinCode Verification -->
+<div id="adminPinModal" class="modal"> 
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>Подтверждение доступа</h2>
+        <p>Введите пин-код для входа в админ-панель</p>
+        <form id="adminPinForm">
+            <div class="input-group">
+                <input type="password" id="adminPin" name="pin" maxlength="4" required>
+                <label for="adminPin">Пин-код</label>
+                <div class="highlight"></div>
+            </div>
+            <button type="submit" class="submit-btn">Подтвердить</button>
+        </form>
+        <div id="pinMessage"></div>
+    </div>
+</div>

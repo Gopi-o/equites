@@ -91,6 +91,10 @@ document.getElementById('forgotPasswordForm')?.addEventListener('submit', async 
 document.addEventListener('DOMContentLoaded', function() {
     const userIcon = document.getElementById('user-icon');
     const loginModal = document.getElementById('loginModal');
+
+    const adminAccessBtn = document.getElementById('adminAccessBtn');
+    const adminPinModal = document.getElementById('adminPinModal');
+    const closeModal = document.querySelector('.close-modal');
     
     if (userIcon) {
         userIcon.addEventListener('click', function(e) {
@@ -109,6 +113,55 @@ document.addEventListener('DOMContentLoaded', function() {
                     console.error('Ошибка проверки авторизации:', error);
                     openModal('loginModal');
                 });
+        });
+    }
+
+    if (adminAccessBtn) {
+        adminAccessBtn.addEventListener('click', function() {
+            adminPinModal.style.display = 'block';
+        });
+    }
+    
+    if (closeModal) {
+        closeModal.addEventListener('click', function() {
+            adminPinModal.style.display = 'none';
+        });
+    }
+    
+    // Закрытие модального окна при клике вне его
+    window.addEventListener('click', function(event) {
+        if (event.target === adminPinModal) {
+            adminPinModal.style.display = 'none';
+        }
+    });
+
+    //Check PinCode for admin
+    const pinForm = document.getElementById('adminPinForm');
+    if (pinForm) {
+        pinForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const pinInput = document.getElementById('adminPin');
+            if (pinInput) {
+                const pin = pinInput.value;
+                
+                fetch('/assets/vendor/auth/verify_admin_pin.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: `pin=${pin}`
+                })
+                .then(response => response.json())
+                .then(data => {
+                    const pinMessage = document.getElementById('pinMessage');
+                    if (data.success) {
+                        window.location.href = '/admin/dashboard.php';
+                    } else if (pinMessage) {
+                        pinMessage.textContent = data.message;
+                        pinMessage.style.color = 'red';
+                    }
+                });
+            }
         });
     }
 });
