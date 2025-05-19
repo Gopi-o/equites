@@ -220,13 +220,28 @@
         return query($sql);
     }
 
+    function getAllDiscount(){
+        return query(
+            "SELECT title, description, start_date, end_date, image_url FROM discount"
+        );
+
+    }
+
     function getAllReviews() {
         return query("
             SELECT user_name, rating, comment, created_at 
             FROM reviews 
             ORDER BY created_at DESC
         ");
+    }
 
+
+    function addReview($email, $phone, $user_name, $rating, $comment) {
+        return make(
+            "INSERT INTO reviews (email, phone, user_name, rating, comment, created_at, is_approved) 
+            VALUES (?, ?, ?, ?, ?, CURDATE(), 0)",
+            [$email, $phone, $user_name, $rating, $comment]
+        );
     }
 
     function getProducts() {
@@ -234,6 +249,14 @@
         return query($sql);
     }
 
+
+    function addContact($email, $user_name, $comment) {
+        return make(
+            "INSERT INTO contact (email, user_name, comment, created_at) 
+            VALUES (?, ?, ?, NOW())",
+            [$email, $user_name, $comment]
+        );
+    }
     
     function calculateCartTotal($cart) {
         return array_reduce($cart, function($sum, $item) {

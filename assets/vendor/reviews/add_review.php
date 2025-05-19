@@ -8,20 +8,15 @@ header("Access-Control-Allow-Origin: *");
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/function.php';
 
-function addReview($email, $phone, $user_name, $rating, $comment) {
-    $sql = "INSERT INTO reviews (user_id, user_name, rating, comment, created_at) 
-            VALUES ((SELECT user_id FROM users WHERE email = ?), ?, ?, ?, CURDATE())";
-    return make($sql, [$email, $user_name, $rating, $comment]);
-}
 
 try {
-    // Получаем и проверяем входные данные
+    // Получаем данные
     $input = json_decode(file_get_contents('php://input'), true);
-    if (json_last_error() !== JSON_ERROR_NONE || !$input) {
+    if (!$input) {
         throw new Exception('Неверный формат данных');
     }
 
-    // Валидация обязательных полей
+    // Валидация
     $required = ['email', 'user_name', 'comment', 'rating'];
     foreach ($required as $field) {
         if (empty($input[$field])) {
@@ -36,7 +31,7 @@ try {
     $comment = htmlspecialchars($input['comment']);
     $rating = (int)$input['rating'];
 
-    // Дополнительные проверки
+    // Проверки
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         throw new Exception('Некорректный email');
     }
@@ -48,17 +43,19 @@ try {
     // Добавление отзыва
     $success = addReview($email, $phone, $user_name, $rating, $comment);
 
-    echo json_encode([
-        'success' => $success,
-        'message' => $success ? 'Отзыв успешно добавлен' : 'Ошибка при сохранении отзыва'
-    ]);
-    exit;
-
+    if ($success) {
+        echo json_encode([
+            'success' => true, 
+            'message' => 'Отзыв успешно добавлен'
+        ]);
+    } else {
+        throw new Exception('Ошибка при сохранении отзыва');
+    }
 } catch (Exception $e) {
     http_response_code(400);
     echo json_encode([
         'success' => false,
         'message' => $e->getMessage()
     ]);
-    exit;
+    file_put_contents('debug_error.log', date('Y-m-d H:i:s') . " - " . $e->getMessage() . "\n", FILE_APPEND);
 }
