@@ -16,3 +16,49 @@
             header.classList.remove('scrolled');
         }
     });
+
+// Функции для работы с модальными окнами
+function openModal(modalId) {
+    closeAllModals();
+    document.getElementById(modalId).style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeAllModals() {
+    document.querySelectorAll('.modal').forEach(modal => {
+        modal.style.display = 'none';
+    });
+    document.body.style.overflow = 'auto';
+}
+
+// Обработчики закрытия модальных окон
+document.querySelectorAll('.close-modal').forEach(closeBtn => {
+    closeBtn.addEventListener('click', closeAllModals);
+});
+
+window.addEventListener('click', e => {
+    if (e.target.classList.contains('modal')) {
+        closeAllModals();
+    }
+});
+
+// Обработчики переключения между модальными окнами
+document.getElementById('registerLink')?.addEventListener('click', e => {
+    e.preventDefault();
+    openModal('registerModal');
+});
+
+document.getElementById('forgotPasswordLink')?.addEventListener('click', e => {
+    e.preventDefault();
+    openModal('forgotPasswordModal');
+});
+
+document.getElementById('backToLoginLink')?.addEventListener('click', e => {
+    e.preventDefault();
+    openModal('loginModal');
+});
+
+document.getElementById('backToLoginFromRegisterLink')?.addEventListener('click', e => {
+    e.preventDefault();
+    openModal('loginModal');
+});

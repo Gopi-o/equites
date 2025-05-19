@@ -10,111 +10,129 @@
     <div class="container">
         <h2 class="catalog-title">Каталог услуг</h2>
         
-        <!-- Фильтры -->
+        <!-- Фильтры (динамически из БД) -->
         <div class="filters-container">
-            <div class="filter-box active">
-                <span class="filter-title">Экипировка</span>
+            <div class="filter-box active" data-category="all">
+                <span class="filter-title">Все товары</span>
                 <span class="filter-clear"><i class="fas fa-times"></i></span>
             </div>
             
-            <div class="filter-box">
-                <span class="filter-title">Услуги клуба</span>
-                <span class="filter-clear"><i class="fas fa-times"></i></span>
-            </div>
+            <?php
+            // Получаем уникальные категории из базы данных
+            $categories = query("SELECT DISTINCT category FROM products WHERE category IS NOT NULL AND category != ''");
             
-            <div class="filter-box">
-                <span class="filter-title">Для лошади</span>
-                <span class="filter-clear"><i class="fas fa-times"></i></span>
-            </div>
-            
-            <div class="filter-box">
-                <span class="filter-title">Аксессуары</span>
-                <span class="filter-clear"><i class="fas fa-times"></i></span>
-            </div>
+            foreach ($categories as $category): 
+                if (!empty($category['category'])):
+            ?>
+                <div class="filter-box" data-category="<?= htmlspecialchars($category['category']) ?>">
+                    <span class="filter-title"><?= htmlspecialchars($category['category']) ?></span>
+                    <span class="filter-clear"><i class="fas fa-times"></i></span>
+                </div>
+            <?php
+                endif;
+            endforeach; 
+            ?>
         </div>
         
         <!-- Карточки товаров -->
         <div class="products-grid">
-            <!-- Карточка 1 -->
-            <div class="promotion-card">
-                <div class="promotion-img" style="background-image: url('/assets/resources/img/cards/card_1.png')"></div>
-                <div class="promotion-content">
-                    <h3>Индивидуальное занятие с тренером</h3>
-                    <p>Персональная тренировка с мастером спорта. Разбор техники, работа над ошибками.</p>
-                    <a href="#" class="price-btn">15 000 ₽</a>
+            <?php
+            $products = query("SELECT product_id, name, description, price, image_url, category FROM products");
+            foreach ($products as $product): 
+                $price = number_format($product['price'], 0, '', ' ');
+            ?>
+                <div class="promotion-card" data-product-id="<?= $product['product_id'] ?>" data-category="<?= htmlspecialchars($product['category']) ?>">
+                    <div class="promotion-img" style="background-image: url('<?= $product['image_url'] ?>')"></div>
+                    <div class="promotion-content">
+                        <h3><?= htmlspecialchars($product['name']) ?></h3>
+                        <p><?= htmlspecialchars($product['description']) ?></p>
+                        <button class="price-btn add-to-cart" data-product-id="<?= $product['product_id'] ?>">
+                            <?= $price ?> ₽
+                        </button>
+                    </div>
                 </div>
-            </div>
-            
-            <!-- Карточка 2 -->
-            <div class="promotion-card">
-                <div class="promotion-img" style="background-image: url('/assets/resources/img/cards/card_2.png')"></div>
-                <div class="promotion-content">
-                    <h3>Годовой абонемент</h3>
-                    <p>Приобретите годовой абонимент и получите 2 месяца занятий в подарок + персональный шкафчик.</p>
-                    <a href="#" class="price-btn">3 500 ₽</a>
-                </div>
-            </div>
-            
-            <!-- Карточка 3 -->
-            <div class="promotion-card">
-                <div class="promotion-img" style="background-image: url('/assets/resources/img/cards/card_3.png')"></div>
-                <div class="promotion-content">
-                    <h3>Семейный пакет</h3>
-                    <p>Специальное предложение для семей скидка 25% на все занятия для членов одной семьи.</p>
-                    <a href="#" class="price-btn">2 800 ₽</a>
-                </div>
-            </div>
-            
-            <!-- Карточка 4 -->
-            <div class="promotion-card">
-                <div class="promotion-img" style="background-image: url('/assets/resources/img/cards/card_4.png')"></div>
-                <div class="promotion-content">
-                    <h3>Аренда лошади для прогулки</h3>
-                    <p>Продолжительность: 1 час Спокойные лошади, маршрут по живописным тропам.</p>
-                    <a href="#" class="price-btn">2 000 ₽</a>
-                </div>
-            </div>
-            
-            <!-- Карточка 5 -->
-            <div class="promotion-card">
-                <div class="promotion-img" style="background-image: url('/assets/resources/img/cards/card_5.png')"></div>
-                <div class="promotion-content">
-                    <h3>Защитный шлем Samshield Shadowmatt</h3>
-                    <p>Легкий шлем премиум-класса с технологией Multi-Density Foam для максимальной защиты. </p>
-                    <a href="#" class="price-btn">4 200 ₽</a>
-                </div>
-            </div>
-            
-            <!-- Карточка 6 -->
-            <div class="promotion-card">
-                <div class="promotion-img" style="background-image: url('/assets/resources/img/cards/card_6.png')"></div>
-                <div class="promotion-content">
-                    <h3>Куртка для верховой езды Equiline Milano</h3>
-                    <p>Водонепроницаемая мембранная куртка с утеплителем Primaloft. Светоотражающие элементы.</p>
-                    <a href="#" class="price-btn">3 800 ₽</a>
-                </div>
-            </div>
-            
-            <!-- Карточка 7 -->
-            <div class="promotion-card">
-                <div class="promotion-img" style="background-image: url('/assets/resources/img/cards/card_7.png')"></div>
-                <div class="promotion-content">
-                    <h3>Перчатки Roeckl Chester</h3>
-                    <p>Кожаные перчатки с гелевыми вставками для снижения вибрации. Усиленные зоны на пальцах и ладонях.</p>
-                    <a href="#" class="price-btn">5 000 ₽</a>
-                </div>
-            </div>
-            
-            <!-- Карточка 8 -->
-            <div class="promotion-card">
-                <div class="promotion-img" style="background-image: url('/assets/resources/img/cards/card_8.png')"></div>
-                <div class="promotion-content">
-                    <h3>Защитный жилет Airowear Outlyne</h3>
-                    <p>Легкий жилет с технологией "360° Protection". Автоматическая система надувания при падении. </p>
-                    <a href="#" class="price-btn">6 500 ₽</a>
-                </div>
-            </div>
+            <?php endforeach; ?>
         </div>
     </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Фильтрация по категориям
+        const filterBoxes = document.querySelectorAll('.filter-box');
+        filterBoxes.forEach(box => {
+            box.addEventListener('click', function() {
+                const category = this.dataset.category;
+                
+                // Обновляем активное состояние фильтров
+                filterBoxes.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Показываем/скрываем товары в зависимости от выбранной категории
+                const products = document.querySelectorAll('.promotion-card');
+                products.forEach(product => {
+                    if (category === 'all' || product.dataset.category === category) {
+                        product.style.display = 'block';
+                    } else {
+                        product.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Обработка кнопок "Добавить в корзину"
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const productId = this.dataset.productId;
+                const productCard = this.closest('.promotion-card');
+                
+                // Визуальный эффект при добавлении
+                this.classList.add('added');
+                this.innerHTML = '<i class="fas fa-check"></i> Добавлено';
+                
+                // Здесь будет AJAX-запрос для добавления в корзину
+                fetch('/assets/vendor/cart/add-to-cart.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        product_id: productId,
+                        quantity: 1
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Обновляем счетчик корзины в шапке, если есть
+                        const cartCounter = document.querySelector('.cart-counter');
+                        if (cartCounter) {
+                            cartCounter.textContent = data.cart_total || '';
+                            cartCounter.style.display = 'inline-block';
+                        }
+                    } else {
+                        alert('Ошибка: ' + (data.message || 'Не удалось добавить товар'));
+                        this.innerHTML = '<?= $price ?> ₽';
+                        this.classList.remove('added');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Произошла ошибка при добавлении в корзину');
+                    this.innerHTML = '<?= $price ?> ₽';
+                    this.classList.remove('added');
+                });
+                
+                // Возвращаем исходное состояние через 2 секунды
+                setTimeout(() => {
+                    if (!this.classList.contains('added')) return;
+                    this.classList.remove('added');
+                    this.innerHTML = '<?= $price ?> ₽';
+                }, 2000);
+            });
+        });
+    });
+    </script>
 
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/pages/template/main/footer.php')?>

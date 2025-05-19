@@ -4,90 +4,34 @@
 
     <div class="wrapper">
         <div class="container">
-
             <div class="content">
                 <div class="discount_block">
                     <h2 class="discount_title text-center">Акции</h2>
                     <div class="disconts_all">
 
-                        <div class="discount_card card">
+                         <?php
+                    
+                    $discounts = getAllDiscount();
 
-                            <img src="/assets/resources/img/discount/premium_membership.png" alt="">
+                    foreach($discounts as $discount):
+                    ?>
+                         <div class="discount_card card">
+
+                            <img src="/assets/resources/img/discount/<? echo $discount['image_url']; ?>" alt="">
                             <div class="card_body">
                                 <div class="date">
                                  
-                                    <p>01.05.2025-31.05.2025</p>
+                                    <p><? echo $discount['start_date']; ?>-<? echo $discount['end_date']; ?></p>
                                 </div>
-                                <h5>Членство Premium</h5>
-                                <p>Станьте членом нашего клуба и получите эксклюзивные привилегии, включая персонального тренера и неограниченный доступ к конюшням. Специальное предложение - скидка 25% на первый месяц членства.</p>
+                                <h5><? echo $discount['title']; ?></h5>
+                                <p><? echo $discount['description']; ?></p>
                                 <a class="button_dicsount" href="">Подробнее</a>
                             </div>
                         </div>
-                        <div class="discount_card card">
-    
-                            <img src="/assets/resources/img/discount/annual_subscription.png" alt="">
-                            <div class="card_body">
-                                <div class="date">
-                                 
-                                    <p>01.04.2025 - 30.06.2025</p>
-                                </div>
-                                <h5>Годовой абонемент</h5>
-                                <p>Приобретите годовой абонемент и получите 2 месяца занятий в подарок + персональный шкафчик. Акция действует для новых клиентов клуба. Оплата возможна в рассрочку.</p>
-                                <a class="button_dicsount" href="">Подробнее</a>
-                            </div>
-                        </div>
-                        <div class="discount_card card">
-    
-                            <img src="/assets/resources/img/discount/family_package.png" alt="">
-                            <div class="card_body">
-                                <div class="date">
-                                 
-                                    <p>01.05.2025 - 31.12.2025</p>
-                                </div>
-                                <h5>Семейный пакет</h5>
-                                <p>Специальное предложение для семей: скидка 25% на все занятия для членов одной семьи. Минимальное количество участников - 2 человека. Действует на групповые и индивидуальные занятия.</p>
-                                <a class="button_dicsount" href="">Подробнее</a>
-                            </div>
-                        </div>
-                        <div class="discount_card card">
-    
-                            <img src="/assets/resources/img/discount/kids_groups.png" alt="">
-                            <div class="card_body">
-                                <div class="date">
-                                 
-                                    <p>15.05.2025 - 15.07.2025</p>
-                                </div>
-                                <h5>Детские группы</h5>
-                                <p>Новые детские группы с профессиональными тренерами. Первое пробное занятие бесплатно! Специальная программа для детей от 5 до 14 лет. Группы формируются по возрасту и уровню подготовки.</p>
-                                <a class="button_dicsount" href="">Подробнее</a>
-                            </div>
-                        </div>
-                        <div class="discount_card card">
-    
-                            <img src="/assets/resources/img/discount/equipment_discount.png" alt="">
-                            <div class="card_body">
-                                <div class="date">
-                                 
-                                    <p>10.05.2025 - 10.06.2025</p>
-                                </div>
-                                <h5>Скидки на экипировку</h5>
-                                <p>Скидка 15% на всю экипировку для верховой езды при покупке абонемента. В акции участвуют товары ведущих брендов: Pikeur, Cavallo, Equiline. Акция суммируется с другими скидками.</p>
-                                <a class="button_dicsount" href="">Подробнее</a>
-                            </div>
-                        </div>
-                        <div class="discount_card card">
-    
-                            <img src="/assets/resources/img/discount/weekend_special.png" alt="">
-                            <div class="card_body">
-                                <div class="date">
-                                 
-                                    <p>Специальные выходные</p>
-                                </div>
-                                <h5>Членство Premium</h5>
-                                <p>Каждые выходные специальные цены на конные прогулки в парке. Групповые прогулки от 1500 руб. вместо 2000 руб. Индивидуальные прогулки - скидка 20%. Предварительная запись обязательна.</p>
-                                <a class="button_dicsount" href="">Подробнее</a>
-                            </div>
-                        </div>
+                    <? endforeach; ?>
+
+                       
+                      
                     </div>
 
                     <div class="pagination">

@@ -1,3 +1,208 @@
+/* Стили для модальных окон авторизации */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 14, 12, 0.9);
+    overflow: auto;
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #1A1916 0%, #0F0E0C 100%);
+    margin: 5% auto;
+    padding: 40px;
+    border-radius: 8px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+    color: var(--color-text);
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.close-modal {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--color-gold);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.close-modal:hover {
+    color: var(--color-light-gold);
+    transform: rotate(90deg);
+}
+
+.modal h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--color-gold);
+    font-size: 28px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.modal h2:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 2px;
+    background: var(--color-gold);
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 16px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 4px;
+    background-color: rgba(10, 9, 8, 0.5);
+    color: var(--color-text);
+    transition: all 0.3s;
+}
+
+.input-group input:focus {
+    border-color: var(--color-gold);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+}
+
+.input-group label {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    color: var(--color-text-light);
+    font-size: 16px;
+    transition: all 0.3s;
+    pointer-events: none;
+}
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+    top: -10px;
+    left: 15px;
+    font-size: 12px;
+    background-color: #1A1916;
+    padding: 0 5px;
+    color: var(--color-gold);
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--color-gold);
+    color: var(--color-dark);
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    background-color: var(--color-light-gold);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-gold);
+}
+
+.auth-links {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.auth-links a {
+    color: var(--color-text-light);
+    text-decoration: none;
+    margin: 0 10px;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.auth-links a:after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--color-gold);
+    transition: width 0.3s;
+}
+
+.auth-links a:hover {
+    color: var(--color-gold);
+}
+
+.auth-links a:hover:after {
+    width: 100%;
+}
+
+.message {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 4px;
+    text-align: center;
+    display: none;
+}
+
+.error-message {
+    background-color: rgba(139, 0, 0, 0.2);
+    color: #ff6b6b;
+    border: 1px solid rgba(139, 0, 0, 0.5);
+}
+
+.success-message {
+    background-color: rgba(0, 100, 0, 0.2);
+    color: #7bed9f;
+    border: 1px solid rgba(0, 100, 0, 0.5);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .modal-content {
+        margin: 10% auto;
+        width: 90%;
+        padding: 30px 20px;
+    }
+    
+    .modal h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+}
 
 
 
