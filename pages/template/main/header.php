@@ -83,7 +83,7 @@
             </nav>
         </div>
     </header>
-
+   
     <?php include($_SERVER['DOCUMENT_ROOT'] . '/pages/template/forms/cart.php')?>
     <?php include($_SERVER['DOCUMENT_ROOT'] . '/pages/template/forms/auth.php')?>
     <?php include($_SERVER['DOCUMENT_ROOT'] . '/pages/template/forms/modal_review.php') ?>

@@ -8,25 +8,30 @@
                 <div class="discount_block">
                     <h2 class="discount_title text-center">Акции</h2>
                     <div class="disconts_all">
-                        <?php 
-                        $discounts = getDiscounts();
-                        foreach ($discounts as $discount): 
-                            // Форматируем даты
-                            $start_date = date('d.m.Y', strtotime($discount['start_date']));
-                            $end_date = date('d.m.Y', strtotime($discount['end_date']));
-                        ?>
-                        <div class="discount_card card">
-                            <img src="/assets/resources/img/discount/<?= htmlspecialchars($discount['image_url']) ?>" alt="<?= htmlspecialchars($discount['title']) ?>">
+
+                         <?php
+                    
+                    $discounts = getAllDiscount();
+
+                    foreach($discounts as $discount):
+                    ?>
+                         <div class="discount_card card">
+
+                            <img src="/assets/resources/img/discount/<? echo $discount['image_url']; ?>" alt="">
                             <div class="card_body">
                                 <div class="date">
-                                    <p><?= $start_date ?> - <?= $end_date ?></p>
+                                 
+                                    <p><? echo $discount['start_date']; ?>-<? echo $discount['end_date']; ?></p>
                                 </div>
-                                <h5><?= htmlspecialchars($discount['title']) ?></h5>
-                                <p><?= htmlspecialchars($discount['description']) ?></p>
+                                <h5><? echo $discount['title']; ?></h5>
+                                <p><? echo $discount['description']; ?></p>
                                 <a class="button_dicsount" href="">Подробнее</a>
                             </div>
                         </div>
-                        <?php endforeach; ?>
+                    <? endforeach; ?>
+
+                       
+                      
                     </div>
 
                     <div class="pagination">
