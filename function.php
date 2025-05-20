@@ -74,7 +74,7 @@
     }
 
     function getMenuItems() {
-        $isAdminArea = strpos($_SERVER['REQUEST_URI'], '/admin/') === 0;
+        $isAdminArea = strpos($_SERVER['REQUEST_URI'], '/pages/admin/') === 0;
 
         if ($isAdminArea && isset($_SESSION['is_admin'])) {
             $sql = "SELECT url, title FROM menu WHERE access_level = 'admin'";
