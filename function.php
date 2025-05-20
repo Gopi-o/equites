@@ -4,8 +4,8 @@
         $driver = 'mysql';
         $host = 'equites';
         $db_name = 'equites';
-        $db_user = 'root';
-        $db_password = '';
+        $db_user = 'mysql';
+        $db_password = 'mysql';
         $charset = 'utf8mb4';
 
         $options = [
@@ -222,7 +222,7 @@
 
     function getAllDiscount(){
         return query(
-            "SELECT title, description, start_date, end_date, image_url FROM discount"
+            "SELECT discount_id, title, description, start_date, end_date, image_url FROM discount"
         );
 
     }

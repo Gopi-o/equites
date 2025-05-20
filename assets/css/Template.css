@@ -592,9 +592,19 @@ nav ul li:hover:after,
 .text-center{
     text-align: center;
 }
+/* стили modal_discount */
 
-
-
+.discount-close{
+      position: absolute;
+    top: 15px;
+    right: 15px;
+    color: #A9A7A2;
+    font-size: 24px;
+    cursor: pointer;
+}
+.discount-close:hover{
+    color: var(--color-gold);
+}
 
 /* mark::alert */
 /* Стили для уведомлений (alert) */
@@ -1149,6 +1159,9 @@ nav ul li {
         text-align: center;
     }
 }
+
+
+
 
 
 
