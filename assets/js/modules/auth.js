@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 .then(data => {
                     const pinMessage = document.getElementById('pinMessage');
                     if (data.success) {
-                        window.location.href = '/admin/dashboard.php';
+                        window.location.href = '/pages/admin/dashboard.php';
                     } else if (pinMessage) {
                         pinMessage.textContent = data.message;
                         pinMessage.style.color = 'red';
