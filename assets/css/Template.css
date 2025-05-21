@@ -592,9 +592,50 @@ nav ul li:hover:after,
 .text-center{
     text-align: center;
 }
+/* стили modal_discount */
 
+.discount-close{
+      position: absolute;
+    top: 15px;
+    right: 15px;
+    color: #A9A7A2;
+    font-size: 24px;
+    cursor: pointer;
+}
+.discount-close:hover{
+    color: var(--color-gold);
+}
 
+.md-discount-container h3{
+    text-align: center;
+    color: var(--color-gold);
+}
+.md-discount-container h4{
+    text-align: center;
+    color: var(--color-gold);
+    margin-top: 10px;
+}
+.md-date_discount{
+    text-align: center;
+    color: var(--color-text-gray);
+}
+.md-detail-discount{
+    text-align: justify;
+}
+.md-how-discount{
+    text-align: justify;
+    font-size: 0.9rem;
+    color: var(--color-text);
+    margin-bottom: 10px;
+}
 
+.md-cond-discount{
+    width: 100%;
+    text-align: justify; /* Выравнивание по ширине */
+    text-align-last: center;
+    color: var(--color-text-light);
+    font-size: 0.8rem;
+}
 
 /* mark::alert */
 /* Стили для уведомлений (alert) */
@@ -1149,6 +1190,9 @@ nav ul li {
         text-align: center;
     }
 }
+
+
+
 
 
 
