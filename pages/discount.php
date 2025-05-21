@@ -1,7 +1,6 @@
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/pages/template/main/header.php')?>
-    
 
-
+    <?php require_once "../pages/template/forms/modal_discount.php"; ?>
     <div class="wrapper">
         <div class="container">
             <div class="content">
@@ -25,7 +24,9 @@
                                 </div>
                                 <h5><? echo $discount['title']; ?></h5>
                                 <p><? echo $discount['description']; ?></p>
-                                <a class="button_dicsount" href="">Подробнее</a>
+                                <a href="#" class="button_dicsount discount-open" data-id="<?php echo $discount['discount_id']; ?>">
+                                        Подробнее
+                                 </a>
                             </div>
                         </div>
                     <? endforeach; ?>
@@ -73,4 +74,5 @@
             }
         });
     </script>
+    <script src="../assets/js/modules/discount.js"></script>
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/pages/template/main/footer.php')?>

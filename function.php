@@ -222,7 +222,13 @@
 
     function getAllDiscount(){
         return query(
-            "SELECT title, description, start_date, end_date, image_url FROM discount"
+            "SELECT discount_id, title, description, start_date, end_date, image_url FROM discount"
+        );
+
+    }
+     function getAllModalDiscount(){
+        return query(
+            "SELECT discount_id, title, description, details, `how_to_use`, `conditions`, start_date, end_date FROM discount WHERE discount_id = ?"
         );
 
     }
