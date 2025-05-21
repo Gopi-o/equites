@@ -5,7 +5,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const modalTitle = document.getElementById('modal-discount-title');
     const modalDates = document.getElementById('modal-discount-dates');
-    const modalDesc = document.getElementById('modal-discount-description');
+    const modalDetails = document.getElementById('modal-discount-details');
+    const modalCond = document.getElementById('modal-condition');
+    const modalHow = document.getElementById('modal-how-to-use');
 
     function formatDate(dateString) {
         const options = { day: 'numeric', month: 'long', year: 'numeric' };
@@ -15,7 +17,9 @@ document.addEventListener('DOMContentLoaded', function() {
     function loadDiscountData(discountId) {
         modalTitle.textContent = 'Загрузка...';
         modalDates.textContent = '';
-        modalDesc.textContent = '';
+        modalHow.textContent = '';
+        modalCond.textContent = '';
+        modalDetails.textContent = '';
 
         fetch(`/get_discount.php?id=${discountId}`)
             .then(response => {
@@ -25,21 +29,20 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(data => {
                 if (data.error) throw new Error(data.error);
                 
-                // Форматируем данные для отображения
                 modalTitle.textContent = data.title;
                 modalDates.textContent = `${formatDate(data.start_date)} - ${formatDate(data.end_date)}`;
-                
-                // Сохраняем переносы строк в описании
-                modalDesc.innerHTML = data.description
-                    .replace(/\n/g, '<br>')
-                    .replace(/\*(.*?)\*/g, '<strong>$1</strong>'); // Форматирование *жирный текст*
+                modalDetails.innerHTML = data.details?.replace(/\n/g, '<br>') || '';
+                modalHow.innerHTML = data.how_to_use?.replace(/\n/g, '<br>') || '';
+                modalCond.innerHTML = data.conditions?.replace(/\n/g, '<br>') || '';
             })
             .catch(error => {
                 console.error('Error:', error);
                 modalTitle.textContent = 'Ошибка загрузки';
-                modalDesc.textContent = 'Пожалуйста, попробуйте позже.';
+                modalDetails.textContent = 'Пожалуйста, попробуйте позже.';
             });
     }
+
+
 
     function openModal(discountId) {
         modal.style.display = 'flex';

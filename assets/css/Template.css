@@ -606,6 +606,37 @@ nav ul li:hover:after,
     color: var(--color-gold);
 }
 
+.md-discount-container h3{
+    text-align: center;
+    color: var(--color-gold);
+}
+.md-discount-container h4{
+    text-align: center;
+    color: var(--color-gold);
+    margin-top: 10px;
+}
+.md-date_discount{
+    text-align: center;
+    color: var(--color-text-gray);
+}
+.md-detail-discount{
+    text-align: justify;
+}
+.md-how-discount{
+    text-align: justify;
+    font-size: 0.9rem;
+    color: var(--color-text);
+    margin-bottom: 10px;
+}
+
+.md-cond-discount{
+    width: 100%;
+    text-align: justify; /* Выравнивание по ширине */
+    text-align-last: center;
+    color: var(--color-text-light);
+    font-size: 0.8rem;
+}
+
 /* mark::alert */
 /* Стили для уведомлений (alert) */
 .alert {
