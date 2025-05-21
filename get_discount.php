@@ -1,6 +1,6 @@
 <?php
+require_once $_SERVER['DOCUMENT_ROOT'] . '/function.php'; 
 header('Content-Type: application/json');
-require_once $_SERVER['DOCUMENT_ROOT'] . '/function.php'; // Полный путь
 
 if (!isset($_GET['id'])) {
     echo json_encode(['error' => 'ID not provided']);
