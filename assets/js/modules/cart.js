@@ -65,8 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
         data.items.forEach(item => {
             const itemElement = document.createElement('div');
             itemElement.className = 'cart-item';
-            
-            
+
             itemElement.innerHTML = `
                 <div class="cart-item-info">
                     <h4>${item.name}</h4>
@@ -78,9 +77,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     </button>
                 </div>
             `;
+          
             cartItemsContainer.appendChild(itemElement);
+            
+            
         });
-        
+
         // Назначаем обработчики для кнопок удаления
         document.querySelectorAll('.cart-item-remove').forEach(button => {
             button.addEventListener('click', async function() {
@@ -89,6 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 loadCart(); // Перезагружаем корзину после удаления
             });
         });
+        
     }
     
     // Удаление товара из корзины
@@ -142,10 +145,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Функция обновления счетчика в шапке
     function updateCartCounter(count) {
-        const counter = document.querySelector('.cart-counter');
+        const counter = document.querySelector('.cart-count');
         if (counter) {
             counter.textContent = count;
-            counter.style.display = count > 0 ? 'inline-block' : 'none';
+            counter.style.display = count > 0 ? 'flex' : 'none';
         }
     }
     
