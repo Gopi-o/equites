@@ -142,10 +142,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Функция обновления счетчика в шапке
     function updateCartCounter(count) {
-        const counter = document.querySelector('.cart-counter');
+        const counter = document.querySelector('.cart-count');
         if (counter) {
             counter.textContent = count;
-            counter.style.display = count > 0 ? 'inline-block' : 'none';
+            counter.style.display = count > 0 ? 'flex' : 'none';
         }
     }
     
