@@ -290,11 +290,16 @@
         <div class="contacts-grid">
             <div class="contact-info">
                 <h3>Контакты</h3>
-                <p><i class="fas fa-map-marker-alt"></i> г. Москва, Рублево-Успенское ш., д. 12</p>
-                <p><i class="fas fa-phone"></i> +7 (495) 123-45-67</p>
-                <p><i class="fas fa-envelope"></i> info@royal-stable.ru</p>
-                <p><i class="fas fa-clock"></i> Пн-Пт: 8:00 - 22:00</p>
-                <p><i class="fas fa-clock"></i> Сб-Вс: 9:00 - 20:00</p>
+                <?php
+                $contacts = getContacts();
+                ?>
+                <?php foreach($contacts as $contact){ ?>
+                    <p><i class="fas <? echo $contact['class_icon'] ?>"></i><? echo $contact['information'] ?></p>
+                    <!-- <p><i class="fas fa-phone"></i> +7 (495) 123-45-67</p>
+                    <p><i class="fas fa-envelope"></i> info@royal-stable.ru</p>
+                    <p><i class="fas fa-clock"></i> Пн-Пт: 8:00 - 22:00</p>
+                    <p><i class="fas fa-clock"></i> Сб-Вс: 9:00 - 20:00</p> -->
+                <? }?>
                 <h3 style="margin-top: 30px;">Социальные сети</h3>
                 <div class="social-icons" style="margin-top: 15px;">
                     <a href="#"><i class="fab fa-vk"></i></a>

@@ -1,4 +1,8 @@
 <!-- MARK: Footer -->
+ <?php 
+
+ $contacts = getContacts();
+ ?>
     <footer class="dark-section">
         <section class="transition-curve-2 gold-section">
             <div class="section-divider curve-divider divider-top"></div>
@@ -39,10 +43,12 @@
                 <div class="footer-column">
                     <h3>Контакты</h3>
                     <ul>
-                        <li><i class="fas fa-map-marker-alt"></i> г. Москва, Рублево-Успенское ш., д. 12</li>
-                        <li><i class="fas fa-phone"></i> +7 (495) 123-45-67</li>
-                        <li><i class="fas fa-envelope"></i> info@royal-stable.ru</li>
-                        <li><i class="fas fa-clock"></i> Ежедневно с 8:00 до 22:00</li>
+                        <?php foreach($contacts as $contact){ ?>
+                             <li><i class="fas <? echo $contact['class_icon'] ?>"></i><? echo $contact['information'] ?></li>
+                             <!-- <li><i class="fas fa-phone"></i> +7 (495) 123-45-67</li>
+                             <li><i class="fas fa-envelope"></i> info@royal-stable.ru</li>
+                            <li><i class="fas fa-clock"></i> Ежедневно с 8:00 до 22:00</li> -->
+                        <?php } ?>
                     </ul>
                 </div>
             </div>

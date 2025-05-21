@@ -4,8 +4,8 @@
         $driver = 'mysql';
         $host = 'equites';
         $db_name = 'equites';
-        $db_user = 'root';
-        $db_password = '';
+        $db_user = 'mysql';
+        $db_password = 'mysql';
         $charset = 'utf8mb4';
 
         $options = [
@@ -217,6 +217,12 @@
         $sql = "SELECT id, title, description, date, link_text, link_url 
                 FROM novelties 
                 ORDER BY date DESC";
+        return query($sql);
+    }
+    function getContacts() {
+        $sql = "SELECT *
+                FROM contact_inform
+                ";
         return query($sql);
     }
 
