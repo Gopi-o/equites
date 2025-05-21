@@ -1,0 +1,11 @@
+# Основные исключения
+.DS_Store
+node_modules/
+dist/
+*.log
+*.tmp
+
+# Редакторы
+.idea/
+.vscode/
+*.swp
