@@ -292,14 +292,15 @@
                 <h3>Контакты</h3>
                 <?php
                 $contacts = getContacts();
+                $contact = $contacts['0'];
                 ?>
-                <?php foreach($contacts as $contact){ ?>
-                    <p><i class="fas <? echo $contact['class_icon'] ?>"></i><? echo $contact['information'] ?></p>
-                    <!-- <p><i class="fas fa-phone"></i> +7 (495) 123-45-67</p>
-                    <p><i class="fas fa-envelope"></i> info@royal-stable.ru</p>
-                    <p><i class="fas fa-clock"></i> Пн-Пт: 8:00 - 22:00</p>
-                    <p><i class="fas fa-clock"></i> Сб-Вс: 9:00 - 20:00</p> -->
-                <? }?>
+              
+                    <p><i class="fas fa-map-marker-alt"></i> <? echo htmlspecialchars($contact['address']) ?></p>
+                    <p><i class="fas fa-phone"></i>  <? echo htmlspecialchars($contact['phone']) ?></p>
+                    <p><i class="fas fa-envelope"></i> <? echo htmlspecialchars($contact['email']) ?></p>
+                    <p><i class="fas fa-clock"></i>  <? echo htmlspecialchars($contact['working_hours_weekdays']) ?></p>
+                    <p><i class="fas fa-clock"></i>  <? echo htmlspecialchars($contact['working_hours_weekends']) ?></p>
+             
                 <h3 style="margin-top: 30px;">Социальные сети</h3>
                 <div class="social-icons" style="margin-top: 15px;">
                     <a href="#"><i class="fab fa-vk"></i></a>

@@ -46,11 +46,11 @@
                         <?php 
                         $contacts = getContacts();
                         $contact = $contacts['0'] ?>
-                             <li><i class="fas "></i><? echo htmlspecialchars($contact['adress']) ?></li>
-                             <li><i class="fas fa-phone"></i> +7 (495) 123-45-67</li>
-                             <li><i class="fas fa-envelope"></i> info@royal-stable.ru</li>
-                            <li><i class="fas fa-clock"></i> Ежедневно с 8:00 до 22:00</li>
-                       
+                             <li><i class="fas fa-map-marker-alt"></i><? echo htmlspecialchars($contact['address']) ?></li>
+                             <li><i class="fas fa-phone"></i><? echo htmlspecialchars($contact['phone']) ?></li>
+                             <li><i class="fas fa-envelope"></i><? echo htmlspecialchars($contact['email']) ?></li>
+                            <li><i class="fas fa-clock"></i> <? echo htmlspecialchars($contact['working_hours_weekdays']) ?></li>
+                            <li><i class="fas fa-clock"></i> <? echo htmlspecialchars($contact['working_hours_weekends']) ?></li>
                     </ul>
                 </div>
             </div>
