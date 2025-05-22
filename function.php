@@ -221,7 +221,7 @@
     }
     function getContacts() {
         $sql = "SELECT *
-                FROM contact_inform
+                FROM contact_info
                 ";
         return query($sql);
     }

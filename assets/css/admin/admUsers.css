@@ -150,7 +150,19 @@
 .form-row input {
     min-width: 150px;
 }
-
+.select-form-update{
+       padding: 8px 12px;
+    border: 1px solid #444;
+    border-radius: 4px;
+    background: var(--color-dark-light);
+    color: white;
+    font-family: inherit;
+   
+}
+.select-form-update option{
+  
+   color: var(--color-dark);
+}
 .form-row textarea {
     min-width: 200px;
     resize: none;

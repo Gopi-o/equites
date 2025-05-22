@@ -20,8 +20,8 @@ if (!in_array($field, $allowedFields)) {
     exit;
 }
 
-// Проверяем существование записи
-$exists = query("SELECT 1 FROM contact_info LIMIT 1"); // Используем query вместо fetch
+// Проверяем существование записи (используем query вместо fetch)
+$exists = query("SELECT 1 FROM contact_info LIMIT 1");
 
 if (!empty($exists)) {
     $sql = "UPDATE contact_info SET $field = ?";

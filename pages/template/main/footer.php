@@ -43,12 +43,14 @@
                 <div class="footer-column">
                     <h3>Контакты</h3>
                     <ul>
-                        <?php foreach($contacts as $contact){ ?>
-                             <li><i class="fas <? echo $contact['class_icon'] ?>"></i><? echo $contact['information'] ?></li>
-                             <!-- <li><i class="fas fa-phone"></i> +7 (495) 123-45-67</li>
+                        <?php 
+                        $contacts = getContacts();
+                        $contact = $contacts['0'] ?>
+                             <li><i class="fas "></i><? echo htmlspecialchars($contact['adress']) ?></li>
+                             <li><i class="fas fa-phone"></i> +7 (495) 123-45-67</li>
                              <li><i class="fas fa-envelope"></i> info@royal-stable.ru</li>
-                            <li><i class="fas fa-clock"></i> Ежедневно с 8:00 до 22:00</li> -->
-                        <?php } ?>
+                            <li><i class="fas fa-clock"></i> Ежедневно с 8:00 до 22:00</li>
+                       
                     </ul>
                 </div>
             </div>
