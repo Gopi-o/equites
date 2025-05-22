@@ -219,6 +219,12 @@
                 ORDER BY date DESC";
         return query($sql);
     }
+    function getContacts() {
+        $sql = "SELECT *
+                FROM contact_info
+                ";
+        return query($sql);
+    }
 
     function getAllDiscount(){
         return query(

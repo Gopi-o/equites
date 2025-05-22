@@ -14,12 +14,17 @@
                 <h2 class="heading2">Контактная информация</h2>
                 <hr class="hrr">
 
+                <?php
+                $contacts = getContacts();
+                $contact = $contacts['0']
+                ?>
+
                 <div class="info">
                     <div class="fan"><i class="fa-solid fa-location-dot fa-2xl" style="color: #d4af37;"></i></div>
 
                     <div class="pas">
                         <p class="bold">Адрес:</p>
-                        <p class="nobold">г.Ижевск, Пушкинская Ш., к 12</p></div>
+                        <p class="nobold"> <? echo htmlspecialchars($contact['address']) ?></p></div>
                 </div>
 
                 <div class="info">
@@ -27,7 +32,7 @@
 
                     <div class="pas">
                         <p class="bold">Телефон:</p>
-                        <p class="nobold">+7(495) 123 56 78</p>
+                        <p class="nobold"> <? echo htmlspecialchars($contact['phone']) ?></p>
                     </div>
                 </div>
 
@@ -36,7 +41,7 @@
 
                     <div class="pas">
                         <p class="bold">Email:</p>
-                        <p class="nobold">info@royal_stable.ru</p>
+                        <p class="nobold"> <? echo htmlspecialchars($contact['email']) ?></p>
                     </div>
                 </div>
 
@@ -45,8 +50,8 @@
 
                     <div class="pas">
                         <p class="bold">Часы работы:</p>
-                        <p class="nobold">Пн-Пт:8:00- 22:00 <br>
-                                            Сб-Вс:9:00- 20:00</p>
+                        <p class="nobold"> <? echo htmlspecialchars($contact['working_hours_weekdays']) ?> <br>
+                                            <? echo htmlspecialchars($contact['working_hours_weekends']) ?></p>
                     </div>
                 </div>
 
