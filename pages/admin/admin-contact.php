@@ -17,7 +17,7 @@ $contacts = getContacts();
     <div class="admin-container">
         <div class="admin-header">
             <h1 class="admin-title">Управление контактами</h1>
-            <a href="/pages/admin/users.php" class="admin-back-btn">К пользователям</a>
+            <a href="/pages/admin/admin-users.php" class="admin-back-btn">К пользователям</a>
         </div>
         
         <?php if (isset($_SESSION['admin_message'])) { ?>
@@ -63,35 +63,35 @@ $contacts = getContacts();
                 <td>Адрес</td>
                 <td><?= htmlspecialchars($contact['address']) ?></td>
                 <td>
-                    <a href="/assets/vendor/admin/edit-contact.php?field=address" class="action-btn delete-btn">Удалить</a>
+                    <a href="/assets/vendor/admin/delete-contact.php?field=address" class="action-btn delete-btn">Удалить</a>
                 </td>
             </tr>
             <tr>
                 <td>Телефон</td>
                 <td><?= htmlspecialchars($contact['phone']) ?></td>
                 <td>
-                    <a href="/assets/vendor/admin/edit-contact.php?field=phone" class="action-btn delete-btn">Удалить</a>
+                    <a href="/assets/vendor/admin/delete-contact.php?field=phone" class="action-btn delete-btn">Удалить</a>
                 </td>
             </tr>
             <tr>
                 <td>Email</td>
                 <td><?= htmlspecialchars($contact['email']) ?></td>
                 <td>
-                    <a href="/assets/vendor/admin/edit-contact.php?field=email" class="action-btn delete-btn">Удалить</a>
+                    <a href="/assets/vendor/admin/delete-contact.php?field=email" class="action-btn delete-btn">Удалить</a>
                 </td>
             </tr>
             <tr>
                 <td>Часы работы (будни)</td>
                 <td><?= htmlspecialchars($contact['working_hours_weekdays']) ?></td>
                 <td>
-                    <a href="/assets/vendor/admin/edit-contact.php?field=working_hours_weekdays" class="action-btn delete-btn">Удалить</a>
+                    <a href="/assets/vendor/admin/delete-contact.php?field=working_hours_weekdays" class="action-btn delete-btn">Удалить</a>
                 </td>
             </tr>
             <tr>
                 <td>Часы работы (выходные)</td>
                 <td><?= htmlspecialchars($contact['working_hours_weekends']) ?></td>
                 <td>
-                    <a href="/assets/vendor/admin/edit-contact.php?field=working_hours_weekends" class="action-btn delete-btn">Удалить</a>
+                    <a href="/assets/vendor/admin/delete-contact.php?field=working_hours_weekends" class="action-btn delete-btn">Удалить</a>
                 </td>
             </tr>
         <?php else: ?>
