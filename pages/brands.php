@@ -13,7 +13,7 @@
         <div class="heading"><h5>Наши партнеры</h5></div>
 
 
-        <div class="partners">
+        <div id="brands" class="partners">
 
             <div class="partner">
                 <img src="../assets/resources/img/brands/logo_Pikeur.png" alt="pikeur">

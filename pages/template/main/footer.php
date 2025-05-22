@@ -13,9 +13,9 @@
                 <div class="footer-column">
                     <h3>О клубе</h3>
                     <ul>
-                        <li><a href="#">История клуба</a></li>
-                        <li><a href="#">Наша команда</a></li>
-                        <li><a href="#">Фотогалерея</a></li>
+                        <li><a href="/pages/about.php/#history-club">История клуба</a></li>
+                        <li><a href="/pages/about.php/#our-team">Наша команда</a></li>
+                        <li><a href="/pages/about.php/#photo-gallery">Фотогалерея</a></li>
                         <li><a href="#">Новости</a></li>
                         <li><a href="#">Сертификаты</a></li>
                     </ul>
@@ -23,19 +23,19 @@
                 <div class="footer-column">
                     <h3>Услуги</h3>
                     <ul>
-                        <li><a href="#">Обучение верховой езде</a></li>
-                        <li><a href="#">Прокат лошадей</a></li>
-                        <li><a href="#">Конные прогулки</a></li>
-                        <li><a href="#">Детские программы</a></li>
+                        <li><a href="/pages/catalog.php/#catalog">Обучение верховой езде</a></li>
+                        <li><a href="/pages/catalog.php/#catalog">Прокат лошадей</a></li>
+                        <li><a href="/pages/catalog.php/#catalog">Конные прогулки</a></li>
+                        <li><a href="/pages/catalog.php/#catalog">Детские программы</a></li>
                         <li><a href="#">Соревнования</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Информация</h3>
                     <ul>
-                        <li><a href="#">Акции</a></li>
-                        <li><a href="#">Отзывы</a></li>
-                        <li><a href="#">Бренды</a></li>
+                        <li><a href="/pages/discount.php/#discounts">Акции</a></li>
+                        <li><a href="/pages/reviews.php/#reviews">Отзывы</a></li>
+                        <li><a href="/pages/brands.php/#brands">Бренды</a></li>
                         <li><a href="#">Блог</a></li>
                         <li><a href="#">FAQ</a></li>
                     </ul>

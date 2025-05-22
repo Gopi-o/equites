@@ -6,7 +6,7 @@
             <div class="content">
                 <div class="discount_block">
                     <h2 class="discount_title text-center">Акции</h2>
-                    <div class="disconts_all">
+                    <div id="discounts" class="disconts_all">
 
                          <?php
                     
