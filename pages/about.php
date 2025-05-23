@@ -14,7 +14,7 @@
     <section id="history" class="history textured-section">
         <div class="section-divider wave-divider divider-top"></div>
         <div class="section-divider divider-bottom"></div>
-        <div class="container">
+        <div id="history-club" class="container">
             <h2 class="section-title" data-animate="fadeIn">Наша история</h2>
             <div class="history-timeline">
                 <div class="timeline-item" data-animate="fadeIn">
@@ -74,7 +74,7 @@
     <section class="team darker-section">
         <div class="section-divider curve-divider divider-top"></div>
         <div class="section-divider divider-bottom"></div>
-        <div class="container">
+        <div id="our-team" class="container">
             <h2 class="section-title" data-animate="fadeIn">Наша команда</h2>
             <div class="team-grid">
                 <div class="team-member" data-animate="fadeIn">
@@ -122,7 +122,7 @@
     </section>
 
     <!-- Галерея -->
-    <section class="gallery textured-section">
+    <section id="photo-gallery" class="gallery textured-section">
         <div class="section-divider wave-divider divider-top"></div>
         <div class="section-divider divider-bottom"></div>
         <div class="container">

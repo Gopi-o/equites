@@ -4,8 +4,8 @@
         $driver = 'mysql';
         $host = 'equites';
         $db_name = 'equites';
-        $db_user = 'root';
-        $db_password = '';
+        $db_user = 'mysql';
+        $db_password = 'mysql';
         $charset = 'utf8mb4';
 
         $options = [

@@ -35,7 +35,7 @@
         </div>
         
         <!-- Карточки товаров -->
-        <div class="products-grid">
+        <div id="catalog" class="products-grid">
             <?php
             $products = query("SELECT product_id, name, description, price, image_url, category FROM products");
             foreach ($products as $product): 

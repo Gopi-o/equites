@@ -12,7 +12,7 @@
             <div class="container">
                 <h1>Отзывы наших клиентов</h1>
                 
-                <div class="reviews-container">
+                <div id="reviews" class="reviews-container">
 
                     <?php
                     $reviews = getAllReviews();
