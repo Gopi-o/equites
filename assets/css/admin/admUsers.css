@@ -27,8 +27,18 @@
     transition: all 0.3s;
 }
 
+.cancel-btn {
+    background: #6c757d;
+    color: white;
+    margin-left: 10px;
+}
+
 .admin-back-btn:hover {
     background: var(--color-gold-dark);
+}
+
+.cancel-btn:hover {
+    background: #5a6268;
 }
 
 .admin-message {
@@ -136,8 +146,7 @@
     align-items: center;
 }
 
-.form-row input,
-.form-row textarea {
+.form-row input {
     padding: 8px 12px;
     border: 1px solid #444;
     border-radius: 4px;
@@ -147,10 +156,23 @@
     flex-grow: 1;
 }
 
+.form-row textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 1rem;
+    border: 1px solid #444;
+    border-radius: 4px;
+    background: var(--color-dark-light);
+    color: white;
+    font-family: inherit;
+    resize: vertical;
+    min-height: 60px;
+}
+
 .form-row input {
     min-width: 150px;
 }
-.select-form-update{
+.select-form{
        padding: 8px 12px;
     border: 1px solid #444;
     border-radius: 4px;
@@ -159,7 +181,7 @@
     font-family: inherit;
    
 }
-.select-form-update option{
+.select-form option{
   
    color: var(--color-dark);
 }

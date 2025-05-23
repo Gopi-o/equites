@@ -10,22 +10,29 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
+$id = (int)($_POST['id'] ?? 0);
 $title = validate($_POST['title'] ?? '');
 $description = validate($_POST['description'] ?? '');
 
 if (empty($title)) {
     $_SESSION['admin_error'] = 'Заголовок обязателен';
+} elseif ($id <= 0) {
+    $_SESSION['admin_error'] = 'Неверный ID новинки';
 } else {
     $linkText = "Подробнее";
     $linkUrl = "#";
     
-    $sql = "INSERT INTO novelties (title, description, link_text, link_url, date) 
-            VALUES (?, ?, ?, ?, NOW())";
+    $sql = "UPDATE novelties SET 
+            title = ?, 
+            description = ?, 
+            link_text = ?, 
+            link_url = ?
+            WHERE id = ?";
     
-    if (make($sql, [$title, $description, $linkText, $linkUrl])) {
-        $_SESSION['admin_message'] = 'Новинка добавлена';
+    if (make($sql, [$title, $description, $linkText, $linkUrl, $id])) {
+        $_SESSION['admin_message'] = 'Новинка обновлена';
     } else {
-        $_SESSION['admin_error'] = 'Ошибка добавления новинки';
+        $_SESSION['admin_error'] = 'Ошибка обновления новинки';
     }
 }
 

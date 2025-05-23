@@ -6,6 +6,15 @@ redirectIfNotLoggedIn();
 redirectIfNotAdmin();
 
 $contacts = getContacts();
+$contact = !empty($contacts) ? $contacts[0] : null;
+
+$contactFields = [
+    'address' => 'Адрес',
+    'phone' => 'Телефон',
+    'email' => 'Email',
+    'working_hours_weekdays' => 'Часы работы (будни)',
+    'working_hours_weekends' => 'Часы работы (выходные)'
+];
 ?>
     
 <section class="transition-diagonal gold-section">
@@ -30,78 +39,82 @@ $contacts = getContacts();
             <?php unset($_SESSION['admin_error']); ?>
         <?php } ?>
         
-       <form method="POST" action="/assets/vendor/admin/update-contact.php" class="compact-form">
-    <div class="form-row">
-        <select class="select-form-update" name="field" required>
-            <option value="">Выберите поле</option>
-            <option value="address">Адрес</option>
-            <option value="phone">Телефон</option>
-            <option value="email">Email</option>
-            <option value="working_hours_weekdays">Часы работы (будни)</option>
-            <option value="working_hours_weekends">Часы работы (выходные)</option>
-        </select>
-        <input type="text" name="value" placeholder="Новое значение" required>
-        <button type="submit" class="compact-btn">Обновить</button>
-    </div>
-</form>
+        <!-- Форма обновления контактов -->
+        <form method="POST" action="/assets/vendor/admin/update-contact.php" class="compact-form" id="contactForm">
+            <div class="form-row">
+                <select name="field" class="select-form" id="fieldSelect" required
+                        onchange="updateFieldValue(this.value)">
+                    <option value="">Выберите поле для редактирования</option>
+                    <?php foreach ($contactFields as $field => $label): ?>
+                        <option value="<?= $field ?>" 
+                                data-current="<?= htmlspecialchars($contact[$field] ?? '') ?>">
+                            <?= $label ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+                <input type="text" name="value" id="valueInput" placeholder="Текущее значение появится здесь" required>
+                <button type="submit" class="compact-btn">Обновить</button>
+            </div>
+        </form>
         
         <table class="users-table">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Имя</th>
-                   
+                    <th>Поле</th>
+                    <th>Значение</th>
                     <th>Действия</th>
                 </tr>
             </thead>
             <tbody>
-              
-        <?php if (!empty($contacts)): 
-            $contact = $contacts[0]; // Берем первую (и единственную) запись
-        ?>
-            <tr>
-                <td>Адрес</td>
-                <td><?= htmlspecialchars($contact['address']) ?></td>
-                <td>
-                    <a href="/assets/vendor/admin/delete-contact.php?field=address" class="action-btn delete-btn">Удалить</a>
-                </td>
-            </tr>
-            <tr>
-                <td>Телефон</td>
-                <td><?= htmlspecialchars($contact['phone']) ?></td>
-                <td>
-                    <a href="/assets/vendor/admin/delete-contact.php?field=phone" class="action-btn delete-btn">Удалить</a>
-                </td>
-            </tr>
-            <tr>
-                <td>Email</td>
-                <td><?= htmlspecialchars($contact['email']) ?></td>
-                <td>
-                    <a href="/assets/vendor/admin/delete-contact.php?field=email" class="action-btn delete-btn">Удалить</a>
-                </td>
-            </tr>
-            <tr>
-                <td>Часы работы (будни)</td>
-                <td><?= htmlspecialchars($contact['working_hours_weekdays']) ?></td>
-                <td>
-                    <a href="/assets/vendor/admin/delete-contact.php?field=working_hours_weekdays" class="action-btn delete-btn">Удалить</a>
-                </td>
-            </tr>
-            <tr>
-                <td>Часы работы (выходные)</td>
-                <td><?= htmlspecialchars($contact['working_hours_weekends']) ?></td>
-                <td>
-                    <a href="/assets/vendor/admin/delete-contact.php?field=working_hours_weekends" class="action-btn delete-btn">Удалить</a>
-                </td>
-            </tr>
-        <?php else: ?>
-            <tr>
-                <td colspan="3">Контактная информация не найдена</td>
-            </tr>
-        <?php endif; ?>
+                <?php if ($contact): ?>
+                    <?php foreach ($contactFields as $field => $label): ?>
+                        <tr>
+                            <td><?= $label ?></td>
+                            <td><?= htmlspecialchars($contact[$field] ?? '—') ?></td>
+                            <td>
+                                <button onclick="fillForm('<?= $field ?>', '<?= htmlspecialchars($contact[$field] ?? '') ?>')" 
+                                        class="action-btn change-btn">Изменить</button>
+                                <form method="POST" action="/assets/vendor/admin/delete-contact.php" 
+                                      onsubmit="return confirm('Очистить это поле?')" class="delete-form">
+                                    <input type="hidden" name="field" value="<?= $field ?>">
+                                    <button type="submit" class="action-btn delete-btn">Очистить</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <tr>
+                        <td colspan="3">Контактная информация не найдена</td>
+                    </tr>
+                <?php endif; ?>
             </tbody>
         </table>
     </div>
 </main>
+
+<script>
+function updateFieldValue(field) {
+    const select = document.getElementById('fieldSelect');
+    const option = select.querySelector(`option[value="${field}"]`);
+    const valueInput = document.getElementById('valueInput');
+    
+    if (option && valueInput) {
+        valueInput.value = option.dataset.current || '';
+        valueInput.focus();
+    }
+}
+
+function fillForm(field, value) {
+    const select = document.getElementById('fieldSelect');
+    const valueInput = document.getElementById('valueInput');
+    
+    if (select && valueInput) {
+        select.value = field;
+        valueInput.value = value;
+        valueInput.focus();
+    
+    }
+}
+</script>
 
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/pages/template/main/footer.php'); ?>
